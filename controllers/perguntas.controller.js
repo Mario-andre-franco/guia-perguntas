@@ -7,7 +7,7 @@ exports.criarPergunta = async (req,res) => {
         titulo:titulo,
         descricao:descricao
     }).then(() => {
-        res.status(201).render("sucesso")
+        res.status(201).redirect("/")
     })  
 }
 
