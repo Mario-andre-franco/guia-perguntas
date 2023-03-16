@@ -1,17 +1,11 @@
 const {Pool} = require('pg')
 const dotenv = require('dotenv')
-
+const Sequelize = require('sequelize')
 dotenv.config()
 
-
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
+const connection = new Sequelize('postgres','postgres',process.env.DATABASE_PASS, {
+    host:'localhost',
+    dialect: 'postgres'
 })
 
-pool.on('connect', () => {
-    console.log("connected")
-})
-
-module.exports = {
-    query: (text, params) => pool.query(text,params)
-}
+module.exports = connection;

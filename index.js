@@ -2,6 +2,20 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const index = require('./rotas/index')
+const perguntaModel = require('./model/pergunta.model')
+
+
+const connection = require('./config/database')
+
+
+
+connection.authenticate().then(() => {
+    console.log('conectado')
+})
+.catch((msgErro) => {
+    console.log(msgErro)
+})
+
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
