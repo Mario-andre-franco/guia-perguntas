@@ -3,6 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const index = require('./rotas/rotas.index')
 const perguntaModel = require('./model/pergunta.model')
+const respostaModel = require('./model/resposta.model')
 
 
 app.set('view engine', 'ejs')
