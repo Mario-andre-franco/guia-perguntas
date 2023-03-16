@@ -2,13 +2,16 @@ const express = require('express')
 const app = express()
 
 app.set('view engine', 'ejs')
+app.use(express.static('public'))
 
 app.get("/:nome/:lang", (req,res) => {
     var nome = req.params.nome;
     var lang = req.params.lang;
+    var msg = "";
     res.render("index", {
         nome: nome,
-        lang: lang
+        lang: lang,
+        msg:msg
     })
 })
 

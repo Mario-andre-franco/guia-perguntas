@@ -5,10 +5,16 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1></h1>
+    <h1>PAPAI</h1>
     <p><%= nome %></p>
     <p><%= lang %></p>
+
+    <% if(msg) { %>
+        <h3>Isso é uma mensagem</h3>
+    <%}%>
+    
 </body>
 </html>
