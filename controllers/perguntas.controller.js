@@ -38,3 +38,10 @@ exports.listarPerguntaPorId = async (req,res) => {
         }
     })
 }
+
+exports.excluirPergunta = async (req,res) => {
+    const id = req.params.id
+    Perguntas.destroy({
+        where: {id:id}
+    }).then(res.redirect("/"))
+}
