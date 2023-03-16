@@ -1,4 +1,3 @@
-const db = require('../config/database')
 const Perguntas = require('../model/pergunta.model')
 
 exports.criarPergunta = async (req,res) => {
@@ -11,11 +10,31 @@ exports.criarPergunta = async (req,res) => {
     })  
 }
 
+exports.realizarPerguntas = async (req,res) => {
+    res.render("perguntar")
+}
 exports.listarPergunta = async (req,res) => {
-    Perguntas.findAll({raw:true}).then(perguntas => {
+    Perguntas.findAll({raw:true, order: [
+        ['id','DESC']
+    ]}).then(perguntas => {
         res.render("index", {
             perguntas:perguntas
         })
     })
    
+}
+
+exports.listarPerguntaPorId = async (req,res) => {
+    const id = req.params.id
+    Perguntas.findOne({
+        where: {id:id}
+    }).then(pergunta => {
+        if(pergunta != undefined) {
+            res.render("pergunta", {
+                pergunta:pergunta
+            })
+        } else {
+            res.redirect("/")
+        }
+    })
 }

@@ -4,10 +4,11 @@ const app = express();
 
 app.get("/", perguntasController.listarPergunta)
 
-app.get("/perguntar", (req,res) => {
-    res.render("perguntar")
-})
+app.get("/perguntar",perguntasController.realizarPerguntas)
+
+app.get("/pergunta/:id",perguntasController.listarPerguntaPorId)
 
 app.post('/salvarpergunta',perguntasController.criarPergunta);
+
 
 module.exports = app;

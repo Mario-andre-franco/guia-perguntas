@@ -5,18 +5,6 @@ const index = require('./rotas/rotas.index')
 const perguntaModel = require('./model/pergunta.model')
 
 
-const connection = require('./config/database')
-
-
-
-connection.authenticate().then(() => {
-    console.log('conectado')
-})
-.catch((msgErro) => {
-    console.log(msgErro)
-})
-
-
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
