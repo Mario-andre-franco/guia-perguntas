@@ -1,4 +1,5 @@
 const express = require('express')
+const perguntasController = require('../controllers/perguntas.controller')
 const app = express();
 
 app.get("/", (req,res) => {
@@ -9,8 +10,6 @@ app.get("/perguntar", (req,res) => {
     res.render("perguntar")
 })
 
-app.post("/salvarpergunta", (req,res) => {
-    res.send("formulario recebido")
-})
+app.post('/salvarpergunta',perguntasController.criarPergunta);
 
 module.exports = app;
