@@ -1,11 +1,21 @@
 const db = require('../config/database')
+const Perguntas = require('../model/pergunta.model')
 
 exports.criarPergunta = async (req,res) => {
     const {titulo,descricao} = req.body
-    const response = await db.query (
-        'insert into perguntas (titulo,descricao) values ($1,$2)',
-        [titulo,descricao]
-    )
+    Perguntas.create({
+        titulo:titulo,
+        descricao:descricao
+    }).then(() => {
+        res.status(201).render("sucesso")
+    })  
+}
 
-    res.status(201).render("sucesso")
+exports.listarPergunta = async (req,res) => {
+    Perguntas.findAll({raw:true}).then(perguntas => {
+        res.render("index", {
+            perguntas:perguntas
+        })
+    })
+   
 }

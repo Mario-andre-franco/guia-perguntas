@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const index = require('./rotas/index')
+const index = require('./rotas/rotas.index')
 const perguntaModel = require('./model/pergunta.model')
 
 
