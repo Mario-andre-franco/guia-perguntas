@@ -1,4 +1,5 @@
 const Perguntas = require('../model/pergunta.model')
+const Resposta = require('../model/resposta.model')
 
 exports.criarPergunta = async (req,res) => {
     const {titulo,descricao} = req.body
@@ -30,9 +31,17 @@ exports.listarPerguntaPorId = async (req,res) => {
         where: {id:id}
     }).then(pergunta => {
         if(pergunta != undefined) {
-            res.render("pergunta", {
-                pergunta:pergunta
+
+            Resposta.findAll({
+                where: {perguntaId:pergunta.id},
+                order: [ ['id','DESC'] ]
+            }).then(respostas => {
+                res.render("pergunta", {
+                    pergunta: pergunta,
+                    respostas: respostas
+                })
             })
+
         } else {
             res.redirect("/")
         }

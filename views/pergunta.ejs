@@ -15,6 +15,14 @@
                 </div>
                 <button type="submit" class="btn btn-lg btn-outline-success">Enviar</button>
             </form>
+            <hr>
+            <hr>
+            <% respostas.forEach(resposta => { %>
+                <br>
+                <div class="card-body">
+                    <p><%=resposta.corpo%></p>
+                </div>
+            <%})%>
         </div>
     </div>
     

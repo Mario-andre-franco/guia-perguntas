@@ -8,6 +8,6 @@ exports.perguntaRespondida = async (req,res) => {
         corpo:corpo,
         perguntaId:perguntaId
     }).then(() => {
-        res.redirect("/pergunta/"+perguntaId)
+        res.redirect("/")
     })  
 }
