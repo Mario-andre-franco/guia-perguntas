@@ -10,7 +10,7 @@ Crud básico de criação e exclusão de perguntas
  
 ## Demo: 
 
-![Guia perguntas](demo/demo.gif)
+![Guia perguntas](gifDemo/demo.gif)
 
 ## Stack utilizada
 
