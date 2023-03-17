@@ -11,8 +11,9 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Digite sua resposta</label>
                     <textarea class="form-control"rows="3" name="corpo"></textarea>
+                    <input type="hidden" name="perguntaId" value="<%=pergunta.id%>">
                 </div>
-                <button type="button" class="btn btn-lg btn-outline-success">Enviar</button>
+                <button type="submit" class="btn btn-lg btn-outline-success">Enviar</button>
             </form>
         </div>
     </div>
